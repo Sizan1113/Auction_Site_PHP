@@ -16,7 +16,7 @@ require 'connection.php';
         <input type="submit" name = "submit" value = "Submit">
     </form>
 
-    <?php
+    <? php
 
     //Inserting using prepare statement
        if(isset($_GET["submit"])){
