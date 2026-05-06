@@ -30,6 +30,7 @@
         
         if(password_verify($password, $user['Password'])){
             echo "Login successful!";
+            
         } else {
             echo "Wrong password!";
         }

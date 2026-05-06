@@ -1,5 +1,5 @@
-<!-- <?php
-// require 'connection.php';
+<?php
+require 'connection.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,18 +10,24 @@
 </head>
 <body>
       <form action="" method="POST">
-        <input type="text" name = "ID" id= "" >
-        <input type="text" name = "username" id = "">
-        <input type="text" name = "email" id ="">
-        <input type  = "password" name = "password">
+        ID:<input type="text" name = "ID" id= "" ><br><br>
+        Username:<input type="text" name = "username" id = ""><br><br>
+        Email:<input type="text" name = "email" id =""><br><br>
+        Password:<input type  = "password" name = "password"><br><br>
+        <label for="Role">Choose a role:</label><br><br>
+        <select name="Role" id="roles">
+        <option value="admin">Admin</option>
+        <option value="user">User</option>
+  
+        </select>
         <input type="submit" name = "submit" value = "Submit">
     </form>
-    <!-- <?php 
+     <?php 
 
 
         if(isset($_POST["submit"])){
-         $In_que = $pdo->prepare("INSERT into registers(ID,Full_name,Email, Password)
-                                Values(:id,:username,:email,:pass)");}
+         $In_que = $pdo->prepare("INSERT into registers(ID,Full_name,Email, Password,role)
+                                Values(:id,:username,:email,:pass,:role)");
        
                                 
 
@@ -29,11 +35,13 @@
             ':id' => $_POST['ID'],
             ':username' => $_POST['username'],
             ':email' => $_POST['email'],
-            ':pass' => $_POST['password']
+            ':pass' => $_POST['password'],
+            ':role' => $_POST['Role']
          ]); 
 
          echo "Data inserted successfully";
-        //  ?>
-<!-- </body> -->
+        }
+         ?>
+ </body> 
 
-<!-- </html> -->
+ </html> 
